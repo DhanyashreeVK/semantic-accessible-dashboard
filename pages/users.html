@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Users - Enterprise Operations Dashboard</title>
+<meta name="description" content="Search, filter, add, edit and delete users.">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/accessibility.css">
+<script src="../js/navigation.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <p class="brand"><a href="../index.html">Enterprise Operations Dashboard</a></p>
+  <nav aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="users.html" aria-current="page">Users</a></li>
+    <li><a href="reports.html">Reports</a></li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+  <div class="account">
+    <p>Signed in as <strong>Priya Nair</strong></p>
+    <a href="settings.html">Account settings</a>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">Menu</button>
+  </div>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar" aria-label="Sidebar navigation">
+  <nav aria-label="Section navigation">
+    <ul>
+    <li><a href="dashboard.html"><span class="icon" aria-hidden="true">▦</span>Dashboard</a></li>
+    <li><a href="users.html" aria-current="page"><span class="icon" aria-hidden="true">☺</span>Users</a></li>
+    <li><a href="reports.html"><span class="icon" aria-hidden="true">▤</span>Reports</a></li>
+    <li><a href="settings.html"><span class="icon" aria-hidden="true">⚙</span>Settings</a></li>
+    </ul>
+  </nav>
+</aside>
+<main id="main-content" tabindex="-1">
+<h1>Users</h1>
+<p class="lead">Manage user accounts and access roles. All names are fictional.</p>
+<p id="page-status" class="status" role="status"></p>
+<section aria-labelledby="search-title">
+  <h2 id="search-title">Search and filter users</h2>
+  <form class="form-panel" role="search" aria-labelledby="search-title" data-filter-table="users-table" data-noun="users" action="#">
+    <div class="form-grid">
+      <div class="field">
+        <label for="user-search">Search by name, email or department</label>
+        <input id="user-search" name="q" type="search" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="filter-role">Role</label>
+        <select id="filter-role" name="role"><option value="">All roles</option><option value="Administrator">Administrator</option><option value="Manager">Manager</option><option value="Analyst">Analyst</option><option value="Viewer">Viewer</option></select>
+      </div>
+      <div class="field">
+        <label for="filter-status">Status</label>
+        <select id="filter-status" name="status"><option value="">All statuses</option><option value="Active">Active</option><option value="Inactive">Inactive</option><option value="Suspended">Suspended</option><option value="Invited">Invited</option></select>
+      </div>
+    </div>
+    <p class="status" role="status" data-result-count></p>
+    <button type="reset" class="btn">Clear filters</button>
+  </form>
+</section>
+<section aria-labelledby="table-title">
+  <div class="section-head">
+    <h2 id="table-title" tabindex="-1" data-focus-fallback>User directory</h2>
+    <button type="button" class="btn btn-primary" data-modal-open="add-user-modal" aria-haspopup="dialog">Add user</button>
+  </div>
+  <div class="table-wrap" role="region" aria-labelledby="users-caption" tabindex="0">
+    <table id="users-table">
+      <caption id="users-caption">Enterprise users with their roles, departments and account status</caption>
+      <thead>
+        <tr>
+          <th scope="col">Name</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col">Department</th>
+          <th scope="col">Status</th><th scope="col">Last active</th><th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-filterable data-role="Administrator" data-status="Active">
+          <th scope="row" data-cell="name">Aarav Mehta</th>
+          <td data-cell="email">aarav.mehta@enterprise.example</td>
+          <td data-cell="role">Administrator</td>
+          <td data-cell="department">Engineering</td>
+          <td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Active</span></td>
+          <td><time datetime="2026-09-29">29 Sep 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Aarav Mehta</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Aarav Mehta</span></button>
+          </td>
+        </tr>
+        <tr data-filterable data-role="Administrator" data-status="Active">
+          <th scope="row" data-cell="name">Priya Nair</th>
+          <td data-cell="email">priya.nair@enterprise.example</td>
+          <td data-cell="role">Administrator</td>
+          <td data-cell="department">Operations</td>
+          <td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Active</span></td>
+          <td><time datetime="2026-09-29">29 Sep 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Priya Nair</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Priya Nair</span></button>
+          </td>
+        </tr>
+        <tr data-filterable data-role="Manager" data-status="Active">
+          <th scope="row" data-cell="name">Rohan Iyer</th>
+          <td data-cell="email">rohan.iyer@enterprise.example</td>
+          <td data-cell="role">Manager</td>
+          <td data-cell="department">Finance</td>
+          <td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Active</span></td>
+          <td><time datetime="2026-09-28">28 Sep 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Rohan Iyer</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Rohan Iyer</span></button>
+          </td>
+        </tr>
+        <tr data-filterable data-role="Analyst" data-status="Active">
+          <th scope="row" data-cell="name">Sneha Kulkarni</th>
+          <td data-cell="email">sneha.kulkarni@enterprise.example</td>
+          <td data-cell="role">Analyst</td>
+          <td data-cell="department">Finance</td>
+          <td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Active</span></td>
+          <td><time datetime="2026-09-27">27 Sep 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Sneha Kulkarni</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Sneha Kulkarni</span></button>
+          </td>
+        </tr>
+        <tr data-filterable data-role="Analyst" data-status="Suspended">
+          <th scope="row" data-cell="name">Karthik Reddy</th>
+          <td data-cell="email">karthik.reddy@enterprise.example</td>
+          <td data-cell="role">Analyst</td>
+          <td data-cell="department">Engineering</td>
+          <td><span class="badge badge-bad"><span aria-hidden="true">✖</span> Suspended</span></td>
+          <td><time datetime="2026-09-12">12 Sep 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Karthik Reddy</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Karthik Reddy</span></button>
+          </td>
+        </tr>
+        <tr data-filterable data-role="Manager" data-status="Active">
+          <th scope="row" data-cell="name">Divya Menon</th>
+          <td data-cell="email">divya.menon@enterprise.example</td>
+          <td data-cell="role">Manager</td>
+          <td data-cell="department">Human Resources</td>
+          <td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Active</span></td>
+          <td><time datetime="2026-09-29">29 Sep 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Divya Menon</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Divya Menon</span></button>
+          </td>
+        </tr>
+        <tr data-filterable data-role="Viewer" data-status="Invited">
+          <th scope="row" data-cell="name">Farhan Sheikh</th>
+          <td data-cell="email">farhan.sheikh@enterprise.example</td>
+          <td data-cell="role">Viewer</td>
+          <td data-cell="department">Support</td>
+          <td><span class="badge badge-info"><span aria-hidden="true">✉</span> Invited</span></td>
+          <td><time datetime="2026-09-20">20 Sep 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Farhan Sheikh</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Farhan Sheikh</span></button>
+          </td>
+        </tr>
+        <tr data-filterable data-role="Analyst" data-status="Inactive">
+          <th scope="row" data-cell="name">Ananya Rao</th>
+          <td data-cell="email">ananya.rao@enterprise.example</td>
+          <td data-cell="role">Analyst</td>
+          <td data-cell="department">Operations</td>
+          <td><span class="badge badge-neutral"><span aria-hidden="true">–</span> Inactive</span></td>
+          <td><time datetime="2026-08-30">30 Aug 2026</time></td>
+          <td class="actions">
+            <button type="button" class="btn btn-small" data-modal-open="edit-user-modal" aria-haspopup="dialog">Edit<span class="visually-hidden"> Ananya Rao</span></button>
+            <button type="button" class="btn btn-small btn-danger" data-modal-open="delete-user-modal" aria-haspopup="dialog">Delete<span class="visually-hidden"> Ananya Rao</span></button>
+          </td>
+        </tr>
+        <tr data-empty-row hidden><td colspan="7">No users match the current search and filters.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+</div>
+<footer class="site-footer">
+  <p>&copy; 2026 Enterprise Operations Dashboard. Academic sample project: all names and figures are fictional.</p>
+</footer>
+<div id="edit-user-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="edit-user-title" aria-describedby="edit-user-desc" tabindex="-1" hidden>
+  <header class="modal-header">
+    <h2 id="edit-user-title">Edit user</h2>
+    <button type="button" class="modal-close" data-modal-close aria-label="Close dialog"><span aria-hidden="true">&times;</span></button>
+  </header>
+  <p id="edit-user-desc">Update the details below and save. Fields marked required must be completed.</p>
+  <form id="edit-user-form" data-validate data-success-message="Saved.">
+    <div class="error-summary" role="alert" tabindex="-1" data-error-summary hidden><p class="error-summary-title"><strong>There is a problem with this form</strong></p><ul></ul></div>
+  <div class="field">
+    <label for="edit-name">Full name <span class="req">(required)</span></label>
+    <input id="edit-name" name="name" type="text" required autocomplete="off">
+    <p id="edit-name-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="edit-email">Email address <span class="req">(required)</span></label>
+    <p id="edit-email-help" class="hint">Use the work email address, for example name@company.com.</p>
+    <input id="edit-email" name="email" type="email" required aria-describedby="edit-email-help" autocomplete="off">
+    <p id="edit-email-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="edit-role">Role <span class="req">(required)</span></label>
+    <select id="edit-role" name="role" required><option value="">Select a role</option><option value="Administrator">Administrator</option><option value="Manager">Manager</option><option value="Analyst">Analyst</option><option value="Viewer">Viewer</option></select>
+    <p id="edit-role-error" class="field-error" hidden></p>
+  </div>
+    <div class="modal-actions">
+      <button type="submit" class="btn btn-primary">Save changes</button>
+      <button type="button" class="btn" data-modal-close>Cancel</button>
+    </div>
+  </form>
+</div>
+<div id="delete-user-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="delete-user-title" aria-describedby="delete-user-desc" tabindex="-1" hidden>
+  <header class="modal-header">
+    <h2 id="delete-user-title">Delete user?</h2>
+    <button type="button" class="modal-close" data-modal-close aria-label="Close dialog"><span aria-hidden="true">&times;</span></button>
+  </header>
+  <p id="delete-user-desc">You are about to permanently delete the account of <strong data-delete-name>this user</strong>. They will lose all access. This is a demonstration, so nothing is stored, but a real system would not allow this to be undone.</p>
+  <div class="modal-actions">
+    <button type="button" class="btn btn-danger" data-confirm-delete>Delete user</button>
+    <button type="button" class="btn" data-modal-close data-autofocus>Cancel, keep user</button>
+  </div>
+</div>
+<div id="add-user-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="add-user-title" aria-describedby="add-user-desc" tabindex="-1" data-reset-on-open hidden>
+  <header class="modal-header">
+    <h2 id="add-user-title">Add user</h2>
+    <button type="button" class="modal-close" data-modal-close aria-label="Close dialog"><span aria-hidden="true">&times;</span></button>
+  </header>
+  <p id="add-user-desc">Enter the details of the new user. Fields marked required must be completed.</p>
+  <form id="add-user-form" data-validate data-success-message="Saved.">
+    <div class="error-summary" role="alert" tabindex="-1" data-error-summary hidden><p class="error-summary-title"><strong>There is a problem with this form</strong></p><ul></ul></div>
+  <div class="field">
+    <label for="add-name">Full name <span class="req">(required)</span></label>
+    <input id="add-name" name="name" type="text" required autocomplete="off">
+    <p id="add-name-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="add-email">Email address <span class="req">(required)</span></label>
+    <p id="add-email-help" class="hint">Use the work email address, for example name@company.com.</p>
+    <input id="add-email" name="email" type="email" required aria-describedby="add-email-help" autocomplete="off">
+    <p id="add-email-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="add-role">Role <span class="req">(required)</span></label>
+    <select id="add-role" name="role" required><option value="">Select a role</option><option value="Administrator">Administrator</option><option value="Manager">Manager</option><option value="Analyst">Analyst</option><option value="Viewer">Viewer</option></select>
+    <p id="add-role-error" class="field-error" hidden></p>
+  </div>
+    <div class="modal-actions">
+      <button type="submit" class="btn btn-primary">Add user</button>
+      <button type="button" class="btn" data-modal-close>Cancel</button>
+    </div>
+  </form>
+</div>
+<script src="../js/forms.js" defer></script>
+<script src="../js/modal.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard - Enterprise Operations Dashboard</title>
+<meta name="description" content="Overview statistics, system status and recent activity.">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/accessibility.css">
+<script src="../js/navigation.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <p class="brand"><a href="../index.html">Enterprise Operations Dashboard</a></p>
+  <nav aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="reports.html">Reports</a></li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+  <div class="account">
+    <p>Signed in as <strong>Priya Nair</strong></p>
+    <a href="settings.html">Account settings</a>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">Menu</button>
+  </div>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar" aria-label="Sidebar navigation">
+  <nav aria-label="Section navigation">
+    <ul>
+    <li><a href="dashboard.html" aria-current="page"><span class="icon" aria-hidden="true">▦</span>Dashboard</a></li>
+    <li><a href="users.html"><span class="icon" aria-hidden="true">☺</span>Users</a></li>
+    <li><a href="reports.html"><span class="icon" aria-hidden="true">▤</span>Reports</a></li>
+    <li><a href="settings.html"><span class="icon" aria-hidden="true">⚙</span>Settings</a></li>
+    </ul>
+  </nav>
+</aside>
+<main id="main-content" tabindex="-1">
+<h1>Dashboard overview</h1>
+<p class="lead">Operational snapshot for 29 September 2026. All figures are fictional sample data.</p>
+<section aria-labelledby="stats-title">
+  <h2 id="stats-title">Overview statistics</h2>
+  <div class="card-grid">
+    <article class="card">
+      <h3>Total users</h3>
+      <p class="stat-value">1,248</p>
+      <p class="stat-note"><span aria-hidden="true">&#9650;</span> 32 more than last month</p>
+    </article>
+    <article class="card">
+      <h3>Active users</h3>
+      <p class="stat-value">967</p>
+      <p class="stat-note">77.5% of all users signed in this week</p>
+    </article>
+    <article class="card">
+      <h3>Open reports</h3>
+      <p class="stat-value">14</p>
+      <p class="stat-note">3 reports are overdue</p>
+    </article>
+    <article class="card">
+      <h3 id="health-title">System health</h3>
+      <p class="stat-value">98.6%</p>
+      <meter aria-labelledby="health-title" min="0" max="100" low="80" high="95" optimum="100" value="98.6">98.6%</meter>
+      <p class="stat-note">Status: Healthy, 1 service degraded</p>
+    </article>
+  </div>
+</section>
+<aside class="notice" aria-labelledby="notice-title">
+  <h2 id="notice-title">Scheduled maintenance</h2>
+  <p>The document storage service will be unavailable on <time datetime="2026-10-03">3 October 2026</time> from 01:00 to 03:00 IST.</p>
+</aside>
+<section aria-labelledby="status-title">
+  <h2 id="status-title">System status</h2>
+  <div class="table-wrap" role="region" aria-labelledby="status-caption" tabindex="0">
+    <table>
+      <caption id="status-caption">Current status of platform services</caption>
+      <thead>
+        <tr><th scope="col">Service</th><th scope="col">Status</th><th scope="col">Uptime (30 days)</th><th scope="col">Last checked</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Authentication service</th><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Operational</span></td><td>99.98%</td><td><time datetime="2026-09-29T09:45">09:45 IST</time></td></tr>
+        <tr><th scope="row">Reporting database</th><td><span class="badge badge-warn"><span aria-hidden="true">▲</span> Degraded</span></td><td>98.90%</td><td><time datetime="2026-09-29T09:45">09:45 IST</time></td></tr>
+        <tr><th scope="row">Notification gateway</th><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Operational</span></td><td>99.95%</td><td><time datetime="2026-09-29T09:44">09:44 IST</time></td></tr>
+        <tr><th scope="row">Document storage</th><td><span class="badge badge-info"><span aria-hidden="true">⚙</span> Maintenance</span></td><td>99.70%</td><td><time datetime="2026-09-29T09:40">09:40 IST</time></td></tr>
+        <tr><th scope="row">Public API</th><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Operational</span></td><td>99.99%</td><td><time datetime="2026-09-29T09:45">09:45 IST</time></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section aria-labelledby="activity-title">
+  <h2 id="activity-title">Recent activity</h2>
+  <div class="table-wrap" role="region" aria-labelledby="activity-caption" tabindex="0">
+    <table>
+      <caption id="activity-caption">Most recent account and system events today</caption>
+      <thead>
+        <tr><th scope="col">Event</th><th scope="col">Performed by</th><th scope="col">Time</th><th scope="col">Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Password reset approved</th><td>Priya Nair</td><td><time datetime="2026-09-29T09:42">09:42 IST</time></td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Success</span></td></tr>
+        <tr><th scope="row">Role changed to Manager</th><td>Aarav Mehta</td><td><time datetime="2026-09-29T09:15">09:15 IST</time></td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Success</span></td></tr>
+        <tr><th scope="row">Login attempt from new device</th><td>Karthik Reddy</td><td><time datetime="2026-09-29T08:57">08:57 IST</time></td><td><span class="badge badge-warn"><span aria-hidden="true">▲</span> Warning</span></td></tr>
+        <tr><th scope="row">Audit log export requested</th><td>Rohan Iyer</td><td><time datetime="2026-09-29T08:31">08:31 IST</time></td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Success</span></td></tr>
+        <tr><th scope="row">Access to finance reports</th><td>Farhan Sheikh</td><td><time datetime="2026-09-29T08:05">08:05 IST</time></td><td><span class="badge badge-bad"><span aria-hidden="true">✖</span> Denied</span></td></tr>
+        <tr><th scope="row">New user invitation sent</th><td>Divya Menon</td><td><time datetime="2026-09-29T07:48">07:48 IST</time></td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Success</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+</div>
+<footer class="site-footer">
+  <p>&copy; 2026 Enterprise Operations Dashboard. Academic sample project: all names and figures are fictional.</p>
+</footer>
+
+
+</body>
+</html>

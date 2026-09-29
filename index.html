@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - Enterprise Operations Dashboard</title>
+<meta name="description" content="Entry point of the Enterprise Operations Dashboard sample project.">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/accessibility.css">
+<script src="js/navigation.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <p class="brand"><a href="index.html">Enterprise Operations Dashboard</a></p>
+  <nav aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li><a href="pages/dashboard.html">Dashboard</a></li>
+    <li><a href="pages/users.html">Users</a></li>
+    <li><a href="pages/reports.html">Reports</a></li>
+    <li><a href="pages/settings.html">Settings</a></li>
+  </ul>
+</nav>
+  <div class="account">
+    <p>Signed in as <strong>Priya Nair</strong></p>
+    <a href="pages/settings.html">Account settings</a>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">Menu</button>
+  </div>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar" aria-label="Sidebar navigation">
+  <nav aria-label="Section navigation">
+    <ul>
+    <li><a href="pages/dashboard.html"><span class="icon" aria-hidden="true">▦</span>Dashboard</a></li>
+    <li><a href="pages/users.html"><span class="icon" aria-hidden="true">☺</span>Users</a></li>
+    <li><a href="pages/reports.html"><span class="icon" aria-hidden="true">▤</span>Reports</a></li>
+    <li><a href="pages/settings.html"><span class="icon" aria-hidden="true">⚙</span>Settings</a></li>
+    </ul>
+  </nav>
+</aside>
+<main id="main-content" tabindex="-1">
+<h1>Enterprise Operations Dashboard</h1>
+<p class="lead">A semantic HTML5 and WCAG 2.1 accessibility demonstration. Choose a module below or use the navigation links.</p>
+<section aria-labelledby="modules-title">
+  <h2 id="modules-title">Modules</h2>
+  <div class="card-grid">
+    <article class="card">
+      <h3><a href="pages/dashboard.html">Dashboard</a></h3>
+      <p>Overview statistics, system status and recent activity.</p>
+    </article>
+    <article class="card">
+      <h3><a href="pages/users.html">Users</a></h3>
+      <p>Search, filter, edit and delete user accounts using accessible dialogs.</p>
+    </article>
+    <article class="card">
+      <h3><a href="pages/reports.html">Reports</a></h3>
+      <p>Filter and generate reports with validated date and select fields.</p>
+    </article>
+    <article class="card">
+      <h3><a href="pages/settings.html">Settings</a></h3>
+      <p>Profile, notification and security preferences in a grouped, validated form.</p>
+    </article>
+  </div>
+</section>
+<section aria-labelledby="keys-title">
+  <h2 id="keys-title">Keyboard support</h2>
+  <dl>
+    <dt><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd></dt>
+    <dd>Move forward or backward through links, buttons and form fields.</dd>
+    <dt><kbd>Enter</kbd> / <kbd>Space</kbd></dt>
+    <dd>Follow a link (Enter) or activate a button (Enter or Space).</dd>
+    <dt><kbd>Esc</kbd></dt>
+    <dd>Close an open dialog, or the sidebar menu on small screens.</dd>
+  </dl>
+</section>
+<section aria-labelledby="about-title">
+  <h2 id="about-title">About this sample</h2>
+  <p>All data is fictional and nothing is sent to a server. Changes made in dialogs and forms are demonstrations only and are lost when the page reloads.</p>
+</section>
+</main>
+</div>
+<footer class="site-footer">
+  <p>&copy; 2026 Enterprise Operations Dashboard. Academic sample project: all names and figures are fictional.</p>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings - Enterprise Operations Dashboard</title>
+<meta name="description" content="Profile, notification, account and security settings.">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/accessibility.css">
+<script src="../js/navigation.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <p class="brand"><a href="../index.html">Enterprise Operations Dashboard</a></p>
+  <nav aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="reports.html">Reports</a></li>
+    <li><a href="settings.html" aria-current="page">Settings</a></li>
+  </ul>
+</nav>
+  <div class="account">
+    <p>Signed in as <strong>Priya Nair</strong></p>
+    <a href="settings.html">Account settings</a>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">Menu</button>
+  </div>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar" aria-label="Sidebar navigation">
+  <nav aria-label="Section navigation">
+    <ul>
+    <li><a href="dashboard.html"><span class="icon" aria-hidden="true">▦</span>Dashboard</a></li>
+    <li><a href="users.html"><span class="icon" aria-hidden="true">☺</span>Users</a></li>
+    <li><a href="reports.html"><span class="icon" aria-hidden="true">▤</span>Reports</a></li>
+    <li><a href="settings.html" aria-current="page"><span class="icon" aria-hidden="true">⚙</span>Settings</a></li>
+    </ul>
+  </nav>
+</aside>
+<main id="main-content" tabindex="-1">
+<h1>Account settings</h1>
+<p class="lead">Update your profile and preferences. Fields marked required must be completed before saving.</p>
+<form id="settings-form" data-validate data-success-message="Settings saved. (Demonstration only: nothing is sent to a server.)" action="#" method="post">
+  <div class="error-summary" role="alert" tabindex="-1" data-error-summary hidden><p class="error-summary-title"><strong>There is a problem with this form</strong></p><ul></ul></div>
+  <fieldset>
+    <legend>Profile</legend>
+    <div class="form-grid">
+  <div class="field">
+    <label for="full-name">Full name <span class="req">(required)</span></label>
+    <input id="full-name" name="fullName" type="text" required autocomplete="name" value="Priya Nair">
+    <p id="full-name-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="email">Email address <span class="req">(required)</span></label>
+    <p id="email-help" class="hint">We use this address for account notices, for example name@company.com.</p>
+    <input id="email" name="email" type="email" required aria-describedby="email-help" autocomplete="email" value="priya.nair@enterprise.example">
+    <p id="email-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="department">Department <span class="req">(required)</span></label>
+    <select id="department" name="department" required><option value="">Select a department</option><option value="Engineering">Engineering</option><option value="Finance">Finance</option><option value="Human Resources">Human Resources</option><option value="Operations" selected>Operations</option><option value="Support">Support</option></select>
+    <p id="department-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="timezone">Time zone <span class="req">(required)</span></label>
+    <p id="timezone-help" class="hint">Used for dates and times shown in reports.</p>
+    <select id="timezone" name="timezone" required aria-describedby="timezone-help"><option value="India Standard Time (UTC+05:30)" selected>India Standard Time (UTC+05:30)</option><option value="Greenwich Mean Time (UTC+00:00)">Greenwich Mean Time (UTC+00:00)</option><option value="Singapore Time (UTC+08:00)">Singapore Time (UTC+08:00)</option><option value="US Eastern Time (UTC-05:00)">US Eastern Time (UTC-05:00)</option></select>
+    <p id="timezone-error" class="field-error" hidden></p>
+  </div>
+    </div>
+  </fieldset>
+  <fieldset aria-describedby="notify-help">
+    <legend>Notification preferences</legend>
+    <p id="notify-help" class="hint">Choose how you would like to be told about important events. All options are optional.</p>
+    <div class="choice"><input id="notify-email" name="notify" type="checkbox" value="email" checked><label for="notify-email">Email alerts</label></div>
+    <div class="choice"><input id="notify-sms" name="notify" type="checkbox" value="sms"><label for="notify-sms">Text message (SMS) alerts</label></div>
+    <div class="choice"><input id="notify-digest" name="notify" type="checkbox" value="digest" checked><label for="notify-digest">Weekly summary digest</label></div>
+  </fieldset>
+  <fieldset>
+    <legend>Account status</legend>
+    <div class="choice"><input id="status-active" name="accountStatus" type="radio" value="active" checked><label for="status-active">Active</label></div>
+    <div class="choice"><input id="status-leave" name="accountStatus" type="radio" value="leave"><label for="status-leave">On leave (notifications paused)</label></div>
+    <div class="choice"><input id="status-closed" name="accountStatus" type="radio" value="closed"><label for="status-closed">Deactivated (sign-in disabled)</label></div>
+  </fieldset>
+  <fieldset>
+    <legend>Password</legend>
+    <div class="form-grid">
+  <div class="field">
+    <label for="password">New password <span class="req">(required)</span></label>
+    <p id="password-help" class="hint">Use at least 12 characters.</p>
+    <input id="password" name="password" type="password" required aria-describedby="password-help" minlength="12" autocomplete="new-password">
+    <p id="password-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="confirm-password">Confirm new password <span class="req">(required)</span></label>
+    <p id="confirm-password-help" class="hint">Re-enter the new password.</p>
+    <input id="confirm-password" name="confirmPassword" type="password" required aria-describedby="confirm-password-help" data-match="password" data-match-message="The passwords do not match." autocomplete="new-password">
+    <p id="confirm-password-error" class="field-error" hidden></p>
+  </div>
+    </div>
+  </fieldset>
+  <div class="button-row">
+    <button type="submit" class="btn btn-primary">Save settings</button>
+    <button type="reset" class="btn">Reset form</button>
+  </div>
+  <p class="status" role="status" data-form-status></p>
+</form>
+</main>
+</div>
+<footer class="site-footer">
+  <p>&copy; 2026 Enterprise Operations Dashboard. Academic sample project: all names and figures are fictional.</p>
+</footer>
+
+<script src="../js/forms.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "semantic-accessible-dashboard",
+  "version": "1.0.0",
+  "description": "Enterprise Operations Dashboard: semantic HTML5 and WCAG 2.1 accessible component architecture (Task 3).",
+  "private": true,
+  "scripts": {
+    "serve": "python3 -m http.server 8080",
+    "serve:node": "npx --yes serve . -l 8080",
+    "check:js": "node --check js/navigation.js && node --check js/modal.js && node --check js/forms.js"
+  },
+  "keywords": ["html5", "accessibility", "wcag", "semantic-html"]
+}

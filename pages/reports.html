@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reports - Enterprise Operations Dashboard</title>
+<meta name="description" content="Filter and generate reports.">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/accessibility.css">
+<script src="../js/navigation.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <p class="brand"><a href="../index.html">Enterprise Operations Dashboard</a></p>
+  <nav aria-label="Primary navigation">
+  <ul class="nav-list">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="users.html">Users</a></li>
+    <li><a href="reports.html" aria-current="page">Reports</a></li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+  <div class="account">
+    <p>Signed in as <strong>Priya Nair</strong></p>
+    <a href="settings.html">Account settings</a>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">Menu</button>
+  </div>
+</header>
+<div class="layout">
+<aside id="sidebar" class="sidebar" aria-label="Sidebar navigation">
+  <nav aria-label="Section navigation">
+    <ul>
+    <li><a href="dashboard.html"><span class="icon" aria-hidden="true">▦</span>Dashboard</a></li>
+    <li><a href="users.html"><span class="icon" aria-hidden="true">☺</span>Users</a></li>
+    <li><a href="reports.html" aria-current="page"><span class="icon" aria-hidden="true">▤</span>Reports</a></li>
+    <li><a href="settings.html"><span class="icon" aria-hidden="true">⚙</span>Settings</a></li>
+    </ul>
+  </nav>
+</aside>
+<main id="main-content" tabindex="-1">
+<h1>Reports</h1>
+<p class="lead">Choose a date range and report type, then generate or filter the report list. Demonstration only: no files are created.</p>
+<section aria-labelledby="report-form-title">
+  <h2 id="report-form-title">Report filters</h2>
+  <form id="report-form" class="form-panel" data-validate data-filter-table="reports-table" data-noun="reports" data-success-message="Report request accepted. The list below now shows matching reports." action="#" method="post">
+    <div class="error-summary" role="alert" tabindex="-1" data-error-summary hidden><p class="error-summary-title"><strong>There is a problem with this form</strong></p><ul></ul></div>
+    <div class="form-grid">
+  <div class="field">
+    <label for="report-from">From date <span class="req">(required)</span></label>
+    <p id="report-from-help" class="hint">Reports are available from 1 January 2026.</p>
+    <input id="report-from" name="from" type="date" required aria-describedby="report-from-help">
+    <p id="report-from-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="report-to">To date <span class="req">(required)</span></label>
+    <p id="report-to-help" class="hint">Must not be earlier than the from date.</p>
+    <input id="report-to" name="to" type="date" required aria-describedby="report-to-help" data-not-before="report-from">
+    <p id="report-to-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="report-type">Report type <span class="req">(required)</span></label>
+    <select id="report-type" name="type" required><option value="">Select a report type</option><option value="Access review">Access review</option><option value="Audit log">Audit log</option><option value="Incident summary">Incident summary</option><option value="Usage summary">Usage summary</option></select>
+    <p id="report-type-error" class="field-error" hidden></p>
+  </div>
+  <div class="field">
+    <label for="report-status">Status</label>
+    <select id="report-status" name="status"><option value="">All statuses</option><option value="Ready">Ready</option><option value="Processing">Processing</option><option value="Failed">Failed</option></select>
+    <p id="report-status-error" class="field-error" hidden></p>
+  </div>
+    </div>
+    <div class="button-row">
+      <button type="submit" class="btn btn-primary">Generate report</button>
+      <button type="reset" class="btn">Clear filters</button>
+    </div>
+    <p class="status" role="status" data-form-status></p>
+    <p class="status" role="status" data-result-count></p>
+  </form>
+</section>
+<section aria-labelledby="report-list-title">
+  <h2 id="report-list-title">Available reports</h2>
+  <div class="table-wrap" role="region" aria-labelledby="reports-caption" tabindex="0">
+    <table id="reports-table">
+      <caption id="reports-caption">Reports with type, status and generation date</caption>
+      <thead>
+        <tr><th scope="col">Report</th><th scope="col">Type</th><th scope="col">Status</th><th scope="col">Generated</th><th scope="col">Owner</th></tr>
+      </thead>
+      <tbody>
+        <tr data-filterable data-type="Access review" data-status="Ready" data-date="2026-09-28">
+          <th scope="row">Q3 access review</th><td>Access review</td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Ready</span></td><td><time datetime="2026-09-28">28 Sep 2026</time></td><td>Priya Nair</td>
+        </tr>
+        <tr data-filterable data-type="Audit log" data-status="Ready" data-date="2026-09-27">
+          <th scope="row">September audit log export</th><td>Audit log</td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Ready</span></td><td><time datetime="2026-09-27">27 Sep 2026</time></td><td>Aarav Mehta</td>
+        </tr>
+        <tr data-filterable data-type="Usage summary" data-status="Ready" data-date="2026-09-02">
+          <th scope="row">August usage summary</th><td>Usage summary</td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Ready</span></td><td><time datetime="2026-09-02">02 Sep 2026</time></td><td>Rohan Iyer</td>
+        </tr>
+        <tr data-filterable data-type="Incident summary" data-status="Ready" data-date="2026-09-15">
+          <th scope="row">Payment outage incident summary</th><td>Incident summary</td><td><span class="badge badge-ok"><span aria-hidden="true">✔</span> Ready</span></td><td><time datetime="2026-09-15">15 Sep 2026</time></td><td>Divya Menon</td>
+        </tr>
+        <tr data-filterable data-type="Access review" data-status="Processing" data-date="2026-09-29">
+          <th scope="row">Q3 privileged accounts review</th><td>Access review</td><td><span class="badge badge-info"><span aria-hidden="true">…</span> Processing</span></td><td><time datetime="2026-09-29">29 Sep 2026</time></td><td>Sneha Kulkarni</td>
+        </tr>
+        <tr data-filterable data-type="Usage summary" data-status="Processing" data-date="2026-09-29">
+          <th scope="row">Weekly usage summary</th><td>Usage summary</td><td><span class="badge badge-info"><span aria-hidden="true">…</span> Processing</span></td><td><time datetime="2026-09-29">29 Sep 2026</time></td><td>Ananya Rao</td>
+        </tr>
+        <tr data-filterable data-type="Audit log" data-status="Failed" data-date="2026-09-25">
+          <th scope="row">Regional audit log export</th><td>Audit log</td><td><span class="badge badge-bad"><span aria-hidden="true">✖</span> Failed</span></td><td><time datetime="2026-09-25">25 Sep 2026</time></td><td>Karthik Reddy</td>
+        </tr>
+        <tr data-empty-row hidden><td colspan="5">No reports match the selected filters.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+</div>
+<footer class="site-footer">
+  <p>&copy; 2026 Enterprise Operations Dashboard. Academic sample project: all names and figures are fictional.</p>
+</footer>
+
+<script src="../js/forms.js" defer></script>
+</body>
+</html>
